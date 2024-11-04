@@ -16,12 +16,12 @@
         >
         </ion-input>
       </ion-item>
-      @if (registerForm.get('fullName')?.dirty) {
-        @if (registerForm.get('fullName')?.errors?.['required']) {
+      @if (registerForm.get('brand')?.dirty) {
+        @if (registerForm.get('brand')?.errors?.['required']) {
           <span class="span-error">This field is required</span>
         }
 
-        @if (registerForm.get('fullName')?.errors?.['minlength']) {
+        @if (registerForm.get('brand')?.errors?.['minlength']) {
           <span class="span-error">Minimum characters should be 2.</span>
         }
       }

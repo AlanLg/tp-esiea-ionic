@@ -4,7 +4,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { IonicModule } from "@ionic/angular";
 import { addIcons } from "ionicons";
 import { caretBack } from "ionicons/icons";
-import { ContactService, IContact } from "../../core/services/contact/contact.service";
+import { CarService, ICar } from "../../core/services/car/car.service";
 import { Router } from "@angular/router";
 
 @Component({
@@ -20,16 +20,12 @@ import { Router } from "@angular/router";
   ]
 })
 export class NewCarPage implements OnInit {
-  public contactForm = new FormGroup({
-    fullName: new FormControl('', [Validators.required, Validators.minLength(2)]),
-    phoneNumber: new FormControl('', [
-      Validators.required,
-      Validators.minLength(10),
-      Validators.maxLength(10)]
-    )
+  public carForm = new FormGroup({
+    brand: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    model: new FormControl('', [Validators.required, Validators.min(2)]),
   })
 
-  constructor(private contactService: ContactService, private router: Router) {
+  constructor(private carService: CarService, private router: Router) {
     addIcons({caretBack})
   }
 
@@ -37,9 +33,9 @@ export class NewCarPage implements OnInit {
   }
 
   public onSave(): void {
-    this.contactService.saveContact(this.contactForm.value as unknown as IContact)
+    this.carService.saveCar(this.carForm.value as unknown as ICar)
       .then(() => {
-      this.router.navigate(['/contact']);
+      this.router.navigate(['/cars']);
     }).catch((error) => {
       console.log(error);
     })

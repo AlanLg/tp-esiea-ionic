@@ -5,7 +5,7 @@ import { IonicModule } from "@ionic/angular";
 import { addIcons } from "ionicons";
 import { addCircle } from "ionicons/icons";
 import { Router } from "@angular/router";
-import { ContactService, IContact } from "../core/services/contact/contact.service";
+import { CarService, ICar } from "../core/services/car/car.service";
 
 @Component({
   selector: 'app-car',
@@ -19,30 +19,29 @@ import { ContactService, IContact } from "../core/services/contact/contact.servi
   ]
 })
 export class CarPage implements OnInit {
-  public contacts: IContact[] = [];
+  public cars: ICar[] = [];
 
-  constructor(private router: Router, private contactService: ContactService) {
+  constructor(private router: Router, private carService: CarService) {
     addIcons({addCircle})
   }
 
   ngOnInit() {
-    this.contactService.getAllContact()
-      .then((contacts: IContact[]) => {
+    this.carService.getAllCars()
+      .then((cars: ICar[]) => {
         console.log('On Init')
-        this.contacts = contacts;
+        this.cars = cars;
       });
   }
 
   ionViewWillEnter() {
-    this.contactService.getAllContact()
-      .then((contacts: IContact[]) => {
+    this.carService.getAllCars()
+      .then((cars: ICar[]) => {
         console.log('On View Will Enter')
-        this.contacts = contacts;
+        this.cars = cars;
       });
   }
 
   public goToNewCarPage(): void {
-    this.router.navigate(['/contact/new']);
+    this.router.navigate(['/cars/new']);
   }
-
 }

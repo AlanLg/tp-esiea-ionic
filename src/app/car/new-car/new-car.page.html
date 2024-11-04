@@ -3,54 +3,54 @@
     <ion-buttons slot="start">
       <ion-back-button icon="caret-back"></ion-back-button>
     </ion-buttons>
-    <ion-title>new-contact</ion-title>
+    <ion-title>new-car</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="new-contact">
+<ion-content [fullscreen]="true" class="new-car">
   <div>
-    <form [formGroup]="contactForm">
+    <form [formGroup]="carForm">
       <ion-item>
         <ion-input
-          label="Fullname"
+          label="Brand"
           labelPlacement="stacked"
-          placeholder="John Doe"
-          formControlName="fullName"
+          placeholder="Renault"
+          formControlName="brand"
         >
         </ion-input>
       </ion-item>
-      @if (contactForm.get('fullName')?.dirty) {
-        @if (contactForm.get('fullName')?.errors?.['required']) {
+      @if (carForm.get('brand')?.dirty) {
+        @if (carForm.get('brand')?.errors?.['required']) {
           <span class="span-error">This field is required</span>
         }
 
-        @if (contactForm.get('fullName')?.errors?.['minlength']) {
+        @if (carForm.get('brand')?.errors?.['minlength']) {
           <span class="span-error">Minimum characters should be 2.</span>
         }
       }
 
       <ion-item>
         <ion-input
-          label="Phone number"
+          label="model"
           labelPlacement="stacked"
           type="text"
-          placeholder="0701020304"
-          formControlName="phoneNumber"
+          placeholder="Clio"
+          formControlName="model"
         >
         </ion-input>
       </ion-item>
-      @if (contactForm.get('phoneNumber')?.dirty) {
-        @if (contactForm.get('phoneNumber')?.errors?.['required']) {
+      @if (carForm.get('model')?.dirty) {
+        @if (carForm.get('model')?.errors?.['required']) {
           <span class="span-error">This field is required</span>
         }
 
-        @if (contactForm.get('phoneNumber')?.errors?.['minlength'] || contactForm.get('phoneNumber')?.errors?.['maxlength']) {
-          <span class="span-error">Your phoneNumber should be 10 digits.</span>
+        @if (carForm.get('model')?.errors?.['minlength']) {
+          <span class="span-error">Minimum characters should be 2.</span>
         }
       }
 
       <div class="container-button">
-        <ion-button size="medium" [disabled]="contactForm.invalid" (click)="onSave()">
+        <ion-button size="medium" [disabled]="carForm.invalid" (click)="onSave()">
           Save
         </ion-button>
       </div>

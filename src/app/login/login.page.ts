@@ -48,7 +48,7 @@ export class LoginPage implements OnInit {
   public onSignIn(): void {
     this.authenticationService.signInWithEmailAndPassword(this.loginForm.value as unknown as Partial<IUser>)
       .then(() => {
-        this.router.navigate(['contact']);
+        this.router.navigate(['cars']);
     }).catch((error) => {
       console.log(error);
     });

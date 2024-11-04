@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Contact</ion-title>
+    <ion-title>Cars</ion-title>
     <ion-buttons slot="end">
       <ion-icon id="icon-add" name="add-circle" color="primary" (click)="goToNewCarPage()"></ion-icon>
     </ion-buttons>
@@ -9,11 +9,11 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    @for(contact of contacts; track contact) {
+    @for(car of cars; track car) {
       <ion-item>
         <ion-label>
-          <h2>{{ contact.fullName }}</h2>
-          <p> {{ contact.phoneNumber }}</p>
+          <h2>{{ car.brand }}</h2>
+          <p> {{ car.model }}</p>
         </ion-label>
       </ion-item>
     }
