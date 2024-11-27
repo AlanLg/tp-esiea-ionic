@@ -33,6 +33,7 @@ export class NewCarPage implements OnInit {
   }
 
   public onSave(): void {
+    console.log("teskltjeskljtsekljteksjfoieshfihweiuhweiuhew")
     this.carService.saveCar(this.carForm.value as unknown as ICar)
       .then(() => {
       this.router.navigate(['/cars']);
