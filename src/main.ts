@@ -9,8 +9,6 @@ import { initializeApp } from "firebase/app";
 import { importProvidersFrom } from "@angular/core";
 import { IonicModule } from "@ionic/angular";
 
-const firebaseConfig = {
-};
 
 initializeApp(firebaseConfig);
 

@@ -11,7 +11,7 @@
   <ion-list>
     @for(car of cars; track car) {
       <ion-item>
-        <ion-label>
+        <ion-label (click)="goToCarShowView(car)">
           <h2>{{ car.brand }}</h2>
           <p> {{ car.model }}</p>
         </ion-label>

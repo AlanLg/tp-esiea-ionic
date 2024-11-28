@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="caret-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>show-car</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-label>
+    <h2>{{ car?.brand }}</h2>
+    <p> {{ car?.model }}</p>
+    <ion-img
+      [src]="getFrontPicture()"
+      alt="Front car view picture"
+    />
+    <ion-img
+      [src]="getBackPicture()"
+      alt="Front car view picture"
+    />
+  </ion-label>
+</ion-content>

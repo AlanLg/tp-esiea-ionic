@@ -41,6 +41,10 @@ export class CarPage implements OnInit {
       });
   }
 
+  public goToCarShowView(car: ICar): void {
+  this.router.navigate(['/cars/show/' + car.brand + car.model + car.licensePlateNumber]);
+  }
+
   public goToNewCarPage(): void {
     this.router.navigate(['/cars/new']);
   }

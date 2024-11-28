@@ -31,7 +31,7 @@
 
       <ion-item>
         <ion-input
-          label="model"
+          label="Model"
           labelPlacement="stacked"
           type="text"
           placeholder="Clio"
@@ -41,13 +41,50 @@
       </ion-item>
       @if (carForm.get('model')?.dirty) {
         @if (carForm.get('model')?.errors?.['required']) {
-          <span class="span-error">This field is required</span>
+          <span class="span-error">This field is required.</span>
         }
 
         @if (carForm.get('model')?.errors?.['minlength']) {
           <span class="span-error">Minimum characters should be 2.</span>
         }
       }
+
+      <ion-item>
+        <ion-input
+          label="License Plate"
+          labelPlacement="stacked"
+          type="text"
+          placeholder="AB344CA"
+          formControlName="licensePlateNumber"
+        >
+        </ion-input>
+      </ion-item>
+      @if (carForm.get('licensePlateNumber')?.dirty) {
+        @if (carForm.get('licensePlateNumber')?.errors?.['required']) {
+          <span class="span-error">This field is required.</span>
+        }
+        @if (carForm.get('licensePlateNumber')?.errors?.['pattern']) {
+          <span class="span-error">Must consist of 2 uppercase letters, followed by 3 digits, and ending with 2 additional uppercase letters.</span>
+        }
+      }
+
+      <ion-item>
+        <ion-label>Front View Picture (Click the image to update it)</ion-label>
+        <ion-img
+          [src]="carForm.get('frontPicturePath')?.value"
+          alt="Front car view picture"
+          (click)="updateFrontImage()"
+        />
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Back View Picture (Click the image to update it)</ion-label>
+        <ion-img
+          [src]="carForm.get('backPicturePath')?.value"
+          alt="Back car view picture"
+          (click)="updateBackImage()"
+        />
+      </ion-item>
 
       <div class="container-button">
         <ion-button size="medium" [disabled]="carForm.invalid" (click)="onSave()">
